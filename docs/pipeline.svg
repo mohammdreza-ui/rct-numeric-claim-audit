@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 372" width="940" height="372" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="940" height="372" rx="16" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="30" y="40" font-size="18" font-weight="700" fill="#0f172a">From a PubMed abstract to a measured detector of unsupported claims</text>
+
+  <!-- row 1 -->
+  <g>
+    <rect x="30" y="64" width="190" height="104" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+    <rect x="30" y="64" width="190" height="6" rx="3" fill="#2563eb"/>
+    <circle cx="52" cy="92" r="11" fill="#2563eb"/><text x="52" y="97" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+    <text x="72" y="97" font-size="15" font-weight="700" fill="#0f172a">Sample</text>
+    <text x="46" y="121" font-size="12.5" fill="#475569">RCT abstracts from PubMed,</text>
+    <text x="46" y="139" font-size="12.5" fill="#475569">seeded, de-duplicated,</text>
+    <text x="46" y="157" font-size="12.5" fill="#475569">folds grouped by PMID</text>
+  </g>
+  <g>
+    <rect x="260" y="64" width="190" height="104" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+    <rect x="260" y="64" width="190" height="6" rx="3" fill="#2563eb"/>
+    <circle cx="282" cy="92" r="11" fill="#2563eb"/><text x="282" y="97" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+    <text x="302" y="97" font-size="15" font-weight="700" fill="#0f172a">Summarise</text>
+    <text x="276" y="121" font-size="12.5" fill="#475569">local LLM, temperature 0,</text>
+    <text x="276" y="139" font-size="12.5" fill="#475569">token logprobs, plus</text>
+    <text x="276" y="157" font-size="12.5" fill="#475569">resampled summaries</text>
+  </g>
+  <g>
+    <rect x="490" y="64" width="190" height="104" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+    <rect x="490" y="64" width="190" height="6" rx="3" fill="#2563eb"/>
+    <circle cx="512" cy="92" r="11" fill="#2563eb"/><text x="512" y="97" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+    <text x="532" y="97" font-size="15" font-weight="700" fill="#0f172a">Extract claims</text>
+    <text x="506" y="121" font-size="12.5" fill="#475569">atomic claims by an LLM of</text>
+    <text x="506" y="139" font-size="12.5" fill="#475569">another family, or one</text>
+    <text x="506" y="157" font-size="12.5" fill="#475569">claim per sentence</text>
+  </g>
+  <g>
+    <rect x="720" y="64" width="190" height="104" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+    <rect x="720" y="64" width="190" height="6" rx="3" fill="#2563eb"/>
+    <circle cx="742" cy="92" r="11" fill="#2563eb"/><text x="742" y="97" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+    <text x="762" y="97" font-size="15" font-weight="700" fill="#0f172a">Rule check</text>
+    <text x="736" y="121" font-size="12.5" fill="#475569">is each number in the</text>
+    <text x="736" y="139" font-size="12.5" fill="#475569">abstract? exact, rounded,</text>
+    <text x="736" y="157" font-size="12.5" fill="#475569">derived or unsupported</text>
+  </g>
+  <line x1="220" y1="116" x2="256" y2="116" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="450" y1="116" x2="486" y2="116" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="680" y1="116" x2="716" y2="116" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="815" y1="168" x2="815" y2="206" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- row 2 (right to left) -->
+  <g>
+    <rect x="720" y="210" width="190" height="124" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+    <rect x="720" y="210" width="190" height="6" rx="3" fill="#2563eb"/>
+    <circle cx="742" cy="238" r="11" fill="#2563eb"/><text x="742" y="243" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+    <text x="762" y="243" font-size="15" font-weight="700" fill="#0f172a">Confidence signals</text>
+    <text x="736" y="267" font-size="12.5" fill="#475569">logprob of the number and</text>
+    <text x="736" y="285" font-size="12.5" fill="#475569">of its context, verbalised,</text>
+    <text x="736" y="303" font-size="12.5" fill="#475569">P(Yes), self-consistency,</text>
+    <text x="736" y="321" font-size="12.5" fill="#475569">MiniCheck</text>
+  </g>
+  <g>
+    <rect x="490" y="210" width="190" height="124" rx="10" fill="#fff7ed" stroke="#fdba74"/>
+    <rect x="490" y="210" width="190" height="6" rx="3" fill="#ea580c"/>
+    <circle cx="512" cy="238" r="11" fill="#ea580c"/><text x="512" y="243" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">6</text>
+    <text x="532" y="243" font-size="15" font-weight="700" fill="#0f172a">Human labels</text>
+    <text x="506" y="267" font-size="12.5" fill="#475569">blind to every automatic</text>
+    <text x="506" y="285" font-size="12.5" fill="#475569">verdict; error origin kept;</text>
+    <text x="506" y="303" font-size="12.5" fill="#475569">labels tied to claim text</text>
+    <text x="506" y="321" font-size="12.5" fill="#475569">by hash</text>
+  </g>
+  <g>
+    <rect x="260" y="210" width="190" height="124" rx="10" fill="#f0fdfa" stroke="#5eead4"/>
+    <rect x="260" y="210" width="190" height="6" rx="3" fill="#0d9488"/>
+    <circle cx="282" cy="238" r="11" fill="#0d9488"/><text x="282" y="243" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">7</text>
+    <text x="302" y="243" font-size="15" font-weight="700" fill="#0f172a">Analysis</text>
+    <text x="276" y="267" font-size="12.5" fill="#475569">re-weighted error rates,</text>
+    <text x="276" y="285" font-size="12.5" fill="#475569">AUROC, risk-coverage,</text>
+    <text x="276" y="303" font-size="12.5" fill="#475569">calibration; bootstrap</text>
+    <text x="276" y="321" font-size="12.5" fill="#475569">by abstract</text>
+  </g>
+  <line x1="716" y1="272" x2="684" y2="272" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="486" y1="272" x2="454" y2="272" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- legend -->
+  <g font-size="12.5" fill="#475569">
+    <rect x="34" y="232" width="14" height="14" rx="3" fill="#2563eb"/><text x="56" y="244">automatic step</text>
+    <rect x="34" y="258" width="14" height="14" rx="3" fill="#ea580c"/><text x="56" y="270">human step</text>
+    <rect x="34" y="284" width="14" height="14" rx="3" fill="#0d9488"/><text x="56" y="296">output</text>
+    <text x="34" y="324">Everything runs on local models.</text>
+  </g>
+</svg>

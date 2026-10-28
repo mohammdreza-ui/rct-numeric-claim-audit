@@ -1,0 +1,11 @@
+Below is a claim made in a summary of a clinical trial abstract.
+Is the claim fully supported by the abstract? Check every number, which group or outcome it belongs to, and the direction of the effect.
+Answer with exactly one word: Yes or No.
+
+Abstract:
+{abstract}
+
+Claim:
+{claim}
+
+Answer:

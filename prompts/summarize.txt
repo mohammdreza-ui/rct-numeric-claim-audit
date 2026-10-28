@@ -1,0 +1,9 @@
+You are summarising a clinical trial for a busy clinician.
+Write a plain-language summary of the abstract below in 3 to 5 sentences.
+Report the main intervention, the comparison, the primary outcome and the key numerical results.
+Use only information from the abstract. Do not add outside knowledge.
+
+Abstract:
+{abstract}
+
+Summary:

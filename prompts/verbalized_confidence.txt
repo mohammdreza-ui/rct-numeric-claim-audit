@@ -1,0 +1,11 @@
+Below is a claim made in a summary of a clinical trial abstract.
+How confident are you that the claim is fully supported by the abstract (numbers and direction included)?
+Answer with one integer from 0 to 100 and nothing else.
+
+Abstract:
+{abstract}
+
+Claim:
+{claim}
+
+Confidence (0-100):

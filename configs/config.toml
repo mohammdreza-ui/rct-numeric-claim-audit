@@ -1,0 +1,55 @@
+# Central experiment config. Change here, not in code.
+[run]
+seed = 20261027
+n_abstracts = 300          # target after filtering; MVP = 150
+min_abstract_words = 120
+max_abstract_words = 450
+require_numeric_results = true   # keep abstracts with >=3 numeric result tokens
+
+[pubmed]
+base_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+tool = "rct-numeric-claim-audit"
+batch_size = 100
+date_from = "2015/01/01"   # publication-date window of the esearch query ([dp] covers print AND electronic dates)
+date_to = "2024/12/31"
+sort = "pub_date"          # newest first: with a pool smaller than the window the sample is the MOST RECENT articles
+per_year = false           # true: draw pool/n_years from each year so the sample spans the whole window
+# 3 req/s without key, 10 with key; client picks automatically
+
+[generators]
+# Each generator is an OpenAI-compatible chat endpoint served LOCALLY (LM Studio or llama.cpp).
+# The pilot used a coder-tuned model; docs/SETUP_DEBIAN.md recommends a general instruct model
+# (e.g. Qwen2.5-7B-Instruct) because summarising clinical text is not a coding task.
+[generators.local]
+kind = "local"
+base_url = "http://localhost:1235/v1"   # LM Studio server
+model = "qwen2.5-coder-7b-instruct"
+supports_logprobs = true
+temperature = 0.0
+max_tokens = 400
+
+[extractor]
+# mode = "llm": an LLM splits summaries into atomic claims (must be a DIFFERENT model family from the
+#               generator; it can introduce errors of its own, which the label sheet separates via error_origin).
+# mode = "sentence": each summary sentence is one claim; no extractor at all, so no extractor errors.
+mode = "llm"
+kind = "local"
+base_url = "http://localhost:1235/v1"   # LM Studio server
+model = "gemma-3-4b-it"
+temperature = 0.0
+max_tokens = 900
+
+[llm]
+max_retries = 4            # local servers only: no API quota, no daily cap
+
+[numeric]
+# Rounding tolerance: a summary number matches a source number if it equals the
+# source value rounded to the number of decimals used in the summary (half-up
+# and half-even both accepted), or differs by <= abs_tol.
+abs_tol = 0.0
+percent_ratio_tol = 0.6    # percentage points allowed for derived percents (n/N)
+
+[confidence]
+n_samples = 5              # self-consistency samples (temperature > 0)
+sc_temperature = 0.7
+n_bins = 5                 # few bins on purpose: ~200 labelled claims only

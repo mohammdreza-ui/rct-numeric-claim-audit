@@ -1,0 +1,18 @@
+Split the SUMMARY below into atomic factual claims. A claim is one checkable statement.
+Return ONLY a JSON list. Each item has:
+  "claim": the claim, rewritten to be self-contained,
+  "span": the exact text of the summary sentence it comes from,
+  "has_number": true if the claim contains a number, percentage, or comparison of effect size,
+  "type": one of "number", "direction", "population", "intervention", "conclusion", "other".
+Rules:
+- Do not invent claims that are not in the summary. Do not correct the summary.
+- Every claim must say what its numbers refer to (which group, which outcome, which time point).
+  Never output a bare statistic such as "p=0.038" or "the difference was significant".
+- Do NOT split a comparison or a paired list: "23% and 39% in the test and control groups, respectively" or
+  "X in group A vs Y in group B" stays in ONE claim with all of its values and group names.
+- Copy numbers exactly as written in the summary.
+
+SUMMARY:
+{summary}
+
+JSON:

@@ -1,0 +1,28 @@
+[project]
+name = "rctaudit"
+version = "0.1.0"
+description = "Audit of numeric-claim provenance in LLM summaries of RCT abstracts"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = ["numpy>=1.26", "requests>=2.31"]
+
+[project.optional-dependencies]
+analysis = ["matplotlib>=3.8", "pandas>=2.1"]
+dev = ["pytest>=8"]
+# MiniCheck is installed separately (see README):
+#   pip install "minicheck @ git+https://github.com/Liyan06/MiniCheck.git@main"
+
+[project.scripts]
+rctaudit = "rctaudit.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
